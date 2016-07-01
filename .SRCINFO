@@ -27,7 +27,7 @@ pkgbase = gr-osmosdr-git
 	provides = gr-osmosdr
 	provides = gnuradio-osmosdr
 	conflicts = gr-osmosdr-git
-	source = git://git.osmocom.org/gr-osmosdr
+	source = gr-osmosdr-git::git://git.osmocom.org/gr-osmosdr
 	md5sums = SKIP
 
 pkgname = gr-osmosdr-git

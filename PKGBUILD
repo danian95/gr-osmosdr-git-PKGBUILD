@@ -50,23 +50,17 @@ conflicts=('gr-osmosdr-git')
 
 install=${pkgname}.install
 
-source=('git://git.osmocom.org/gr-osmosdr')
+source=(${pkgname}::'git://git.osmocom.org/gr-osmosdr')
 md5sums=('SKIP')
 
-_gitname="gr-osmosdr"
-
 pkgver() {
-  cd $_gitname
+  cd ${pkgname}
   # Use the tag of the last commit
-  if [[ "$_nonfree" ]]; then
-    echo $(git describe --always | sed 's|-|.|g; s|^.||').nonfree
-  else
-    git describe --always | sed 's|-|.|g; s|^.||'
-  fi
+  git describe --always | sed 's|-|.|g; s|^.||'
 }
 
 prepare() {
-  cd "${srcdir}"/$_gitname
+  cd "${srcdir}/${pkgname}"
 
   if [[ "$_nonfree" ]]; then
    msg2 "The binaries no longer follow GPL terms and cannot be distributed due to nonfree components."
@@ -75,7 +69,7 @@ prepare() {
 }
 
 build() {
-  cd "$srcdir/$_gitname"
+  cd "${srcdir}/${pkgname}"
   mkdir -p build
   cd build
   cmake -DPYTHON_EXECUTABLE=$(which python2) \
@@ -87,11 +81,11 @@ build() {
 }
 
 package() {
-  cd "$srcdir/$_gitname/build/"
+  cd "${srcdir}/${pkgname}/build/"
   make DESTDIR=${pkgdir} install
 
   if [[ "$_nonfree" ]]; then
-    install -Dm644 $srcdir/$_gitname/COPYING $pkgdir/usr/share/licenses/$pkgname/LICENSE
+    install -Dm644 ${srcdir}/${gitname}/COPYING ${pkgdir}/usr/share/licenses/${pkgname}/LICENSE
   fi
 }
 
