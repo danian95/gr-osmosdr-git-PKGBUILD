@@ -13,7 +13,6 @@ pkgbase = gr-osmosdr-git
 	makedepends = python2-cheetah
 	makedepends = swig
 	depends = gnuradio
-	depends = swig
 	depends = airspy
 	optdepends = gnuradio-iqbal: Osmocom IQ imbalance correction support
 	optdepends = rtl-sdr-git: Osmocom RTLSDR support
