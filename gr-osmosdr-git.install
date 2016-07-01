@@ -1,7 +1,5 @@
 post_install() {
-	echo "Ensure that the corresponding optional dependencies are \
-		installed for support of your device. If not, install the \
-		dependency, then rebuild and reinstall gr-osmosdr-git."
+	echo "Ensure that the corresponding optional dependencies are installed for support of your device. If not, install the dependency, then rebuild and reinstall gr-osmosdr-git."
 }
 
 post_upgrade() {
