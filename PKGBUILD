@@ -4,6 +4,8 @@
 # Modified from rtl-sdr-git PKGBUILD
 
 # Nonfree components are, by default, disabled for GPL compatability
+# Clear the _nonfree variable
+unset _nonfree
 # Uncomment the next line to enable nonfree components, such as sdrplay
 # _nonfree='-DENABLE_NONFREE=TRUE'
 
