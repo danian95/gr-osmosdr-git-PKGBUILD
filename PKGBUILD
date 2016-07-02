@@ -5,7 +5,7 @@
 
 # Nonfree components are, by default, disabled for GPL compatability
 # Uncomment the next line to enable nonfree components, such as sdrplay
-#_nonfree='-DENABLE_NONFREE=TRUE'
+# _nonfree='-DENABLE_NONFREE=TRUE'
 
 pkgname=gr-osmosdr-git
 pkgver=0.1.4.72.g164a09f
@@ -85,7 +85,7 @@ package() {
   make DESTDIR=${pkgdir} install
 
   if [[ "$_nonfree" ]]; then
-    install -Dm644 ${srcdir}/${gitname}/COPYING ${pkgdir}/usr/share/licenses/${pkgname}/LICENSE
+    install -Dm644 ${srcdir}/${pkgname}/COPYING ${pkgdir}/usr/share/licenses/${pkgname}/LICENSE
   fi
 }
 
